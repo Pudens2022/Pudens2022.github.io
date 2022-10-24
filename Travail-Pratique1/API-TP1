@@ -1,0 +1,17 @@
+const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://numbersapi.p.rapidapi.com/6/21/date',
+  params: {fragment: 'true', json: 'true'},
+  headers: {
+    'X-RapidAPI-Key': '227f7d603cmsh688b99843bcb910p1a88eejsn2becc1ca24e0',
+    'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
