@@ -1,3 +1,10 @@
-# Retrieve results from SPARQL (Récupérer les résultats de SPARQL)
-endpoint (extrémité) = "https://query.wikidata.org/bigdata/namespace/wdq/sparql"
-sparql = SPARQLWrapper(endpoint)
+SELECT DISTINCT ?item ?itemLabel WHERE {
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+  {
+    SELECT DISTINCT ?item WHERE {
+      ?item p:P8645 ?statement0.
+      ?statement0 (ps:P8645) _:anyValueP8645.
+    }
+    LIMIT 10
+  }
+}
